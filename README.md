@@ -28,7 +28,7 @@ If you are using another model, it would be great if you could report it
 
 ## Installation
 
-1. `npm install sms-forward`
+1. `npm install -g sms-forward`
 2. copy and rename `config.json.sample` to `config.json`
 3. edit and save `config.json` accordingly (see Configuration section)
 4. `node index.js`
@@ -44,7 +44,7 @@ config.json file shall contains the following keys/values:
 | `huawei_modem_ip` | N/A | The Huawei Modem's IP. e.g. "192.168.1.1"|
 | `huawei_modem_login` | N/A | The Huawei Modem's login. e.g. "admin"|
 | `huawei_modem_password` | N/A | The Huawei Modem's login's password. e.g. "admin"|
-| `macos_address_book_db_pathsword` | N/A | Optional - needed message's originator's name resolution. Path of your MacOS AddressBook to resolve message's originator's name from phone number. You can find a list of databases by running the following command in a terminal: `find ~/Library/Application\ Support/AddressBook/ -name "AddressBook-v22.abcddb" -exec ls -rtlah {} +`, pick the last one in the list.|
+| `macos_address_book_db_path` | N/A | Optional - needed message's originator's name resolution. Path of your MacOS AddressBook to resolve message's originator's name from phone number. You can find a list of databases by running the following command in a terminal: `find ~/Library/Application\ Support/AddressBook/ -name "AddressBook-v22.abcddb" -exec ls -rtlah {} +`, pick the last one in the list.|
 | `country` | N/A | Optional - needed for message's originator's name resolution. Your 2-letters [ISO 3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) code country. e.g. "FR" for France, "GB" for United Kingdom.
 
 
