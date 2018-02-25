@@ -28,7 +28,7 @@ If you are using another model, it would be great if you could report it
 
 ## Installation
 
-1. `npm install sms-auto-forward-huawei-modem`
+1. `npm install sms-forward`
 2. copy and rename `config.json.sample` to `config.json`
 3. edit and save `config.json` accordingly (see Configuration section)
 4. `node index.js`

@@ -1,8 +1,8 @@
 {
-  "name": "sms-auto-forward-huawei-modem",
-  "version": "1.0.0",
+  "name": "sms-forward",
+  "version": "1.0.2",
   "description": "Auto-forward incoming SMS from one mobile phone number to another phone number using a Huawei mobile broadband device (dongles, wingles)",
-  "homepage": "https://github.com/matsuo3rd/sms-auto-forward-huawei-modem#readme",
+  "homepage": "https://github.com/matsuo3rd/sms-forward#readme",
   "main": "index.js",
   "keywords": [
     "sms",
@@ -14,10 +14,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/matsuo3rd/sms-auto-forward-huawei-modem.git"
+    "url": "git://github.com/matsuo3rd/sms-forward.git"
   },
   "bugs": {
-    "url": "http://github.com/matsuo3rd/sms-auto-forward-huawei-modem/issues"
+    "url": "http://github.com/matsuo3rd/sms-forward/issues"
   },
   "author": "Bertrand Martel",
   "license": "ISC",
