@@ -7,8 +7,7 @@ var MacOSAdressBookLookup = require('./lib/MacOSAdressBookLookup.js');
 //Could not authenticate: Error: connect ENETUNREACH 192.168.1.1:80
 //Prise débranchée: Could not authenticate: Error: connect ENETUNREACH 192.168.1.1:80 - Local (0.0.0.0:49728)
 
-
-if (!fs.existsSync('config.json')) {
+if (!fs.existsSync(__dirname + '/config.json')) {
 	log
 			.error("'config.json' does not exist. Please create one by renaming and editing 'config.json.sample'.");
 	process.exit();
