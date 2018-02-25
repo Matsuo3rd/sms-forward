@@ -1,0 +1,15 @@
+# Mac
+.DS_Store
+
+config.json
+
+# Node
+node_modules/
+npm-debug.log
+.node-version
+
+# Eclipse
+.project
+.settings/
+
+TODO
