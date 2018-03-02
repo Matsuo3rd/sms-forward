@@ -1,4 +1,7 @@
 # sms-forward
+
+[![npm version](https://img.shields.io/npm/v/sms-forward.svg)](https://www.npmjs.com/package/sms-forward)
+
 Auto-forward incoming SMS from one mobile phone number to another phone number using a Huawei mobile broadband device (dongles, wingles).
 
 ## Description
