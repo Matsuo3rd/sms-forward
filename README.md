@@ -55,7 +55,7 @@ Configuration sample:
 
 ```json
 {
-	"sms_target_number": "+33684513242",
+	"sms_target_number": "+33612345678",
 	"sms_scan_frequency": 30,
 	"huawei_modem_ip": "192.168.1.1",
 	"huawei_modem_login": "admin",
