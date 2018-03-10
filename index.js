@@ -43,7 +43,7 @@ function scanSMS() {
     				
     				forwardMessages(0);
     			} else {
-    				log.info("SMS scan complete - no message to forward");
+    				log.debug("SMS scan complete - no message to forward");
     				setTimeout(scanSMS, config.sms_scan_frequency * 1000);
     			}
     		}).catch(function(err){
@@ -61,7 +61,7 @@ function scanSMS() {
 function forwardMessage(message, addressBookLookup) {
 	return new Promise((resolve, reject) => {
     	smsClient.sendSMS(config.sms_target_number, getForwardedMessageContent(message, addressBookLookup)).then(function(result) {
-    		// Need to pause between send/setAsRead (error 113018) - 1second not enough
+    		// Need to pause between send/setAsRead (error 113018) - 1.5 second not enough
     		setTimeout(function() {
     			smsClient.setSMSAsRead(message.Index[0]).then(function(result) {
     				log.debug("Message [" + message.Content[0] + "] from [" + message.Phone[0] 
@@ -72,7 +72,7 @@ function forwardMessage(message, addressBookLookup) {
     				log.error("Could not set SMS as read - " + err);
     				reject(err);
     			});
-    		}, 1500);
+    		}, 2000);
     	}).catch(function(err) {
     		log.error("Could not forward SMS - " + err);
     		reject(err);
