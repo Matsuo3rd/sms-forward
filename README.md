@@ -45,9 +45,9 @@ config.json file shall contains the following keys/values:
 | `sms_target_number` | N/A | The phone number to which SMSs are forwarded. This shall be prefixed with international number (e.g. +33) and **MUST NOT CONTAIN ANY WHITESPACES**. e.g. "+33612345678|
 | `sms_scan_frequency` | N/A | SMS forwarding scan frequency in seconds. i.e. how often messages to be forwarded shall be checked. e.g. "30" (seconds) |
 | `huawei_modem_ip` | N/A | The Huawei Modem's IP. e.g. "192.168.1.1"|
-| `huawei_modem_login` | N/A | The Huawei Modem's login. e.g. "admin"|
-| `huawei_modem_password` | N/A | The Huawei Modem's login's password. e.g. "admin"|
-| `macos_address_book_db_path` | N/A | Optional - needed message's originator's name resolution. Path of your MacOS AddressBook to resolve message's originator's name from phone number. You can find a list of databases by running the following command in a terminal: `find ~/Library/Application\ Support/AddressBook/ -name "AddressBook-v22.abcddb" -exec ls -rtlah {} +`, pick the last one in the list.|
+| `huawei_modem_login` | N/A | Optional - The Huawei Modem's login. e.g. "admin". Some Huawei dongles require a login/password authentication (e.g. E355), others do not (e.g. E3372)|
+| `huawei_modem_password` | N/A | Optional - The Huawei Modem's login's password. e.g. "admin"|
+| `macos_address_book_db_path` | N/A | Optional - needed for message's originator's name resolution. Path of your MacOS AddressBook to resolve message's originator's name from phone number. You can find a list of databases by running the following command in a terminal: `find ~/Library/Application\ Support/AddressBook/ -name "AddressBook-v22.abcddb" -exec ls -rtlah {} +`, pick the last one in the list.|
 | `country` | N/A | Optional - needed for message's originator's name resolution. Your 2-letters [ISO 3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) code country. e.g. "FR" for France, "GB" for United Kingdom.
 
 
