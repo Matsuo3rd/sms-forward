@@ -10,6 +10,10 @@ esac
 
 NODE_EXE="$basedir/node"
 if ! [ -x "$NODE_EXE" ]; then
+  basedir="$basedir/../../../../bin"
+  NODE_EXE="$basedir/node"
+fi
+if ! [ -x "$NODE_EXE" ]; then
   NODE_EXE=node
 fi
 
