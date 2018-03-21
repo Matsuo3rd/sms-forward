@@ -16,6 +16,7 @@ var config = require('./config.json');
 var smsClient = new HuaweiModemClient(config.huawei_modem_ip, config.huawei_modem_login,
 		config.huawei_modem_password);
 
+log.info("SMS Forward started");
 scanSMS();
 
 function scanSMS() {
