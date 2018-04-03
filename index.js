@@ -15,6 +15,7 @@ if (!fs.existsSync(__dirname + '/config.json')) {
 var config = require('./config.json');
 var smsClient = new HuaweiModemClient(config.huawei_modem_ip, config.huawei_modem_login,
 		config.huawei_modem_password);
+var scanCount = 0;
 
 log.info("SMS Forward started");
 scanSMS();
@@ -24,39 +25,57 @@ function scanSMS() {
 	addressBookLookup.init(function() {
 		smsClient.authenticate().then(function(result){
 			log.debug("Scanning SMS");
-			smsClient.listAllUnreadSMS().then(function(messages){				
-    			if (messages.length > 0) {
-    				this.forwardedCount = 0;
-    				
-    				var forwardMessages = function(i){
-    				  if (i<messages.length) {
-    				  		forwardMessage(messages[i], addressBookLookup).then(function(result) {
-    				  			forwardMessages(i+1);
-    				  		}).catch(function(err){
-    				  			setTimeout(scanSMS, config.sms_scan_frequency * 1000);
-    				  			log.error("Could not complete forwarding SMS - " + err);
-    				  		});
-    				  } else {
-    				  		log.info("SMS scan complete: " + this.forwardedCount + " messages forwarded");
-    				  		setTimeout(scanSMS, config.sms_scan_frequency * 1000);
-    				  }
-    				};
-    				
-    				forwardMessages(0);
-    			} else {
-    				log.debug("SMS scan complete - no message to forward");
-    				setTimeout(scanSMS, config.sms_scan_frequency * 1000);
-    			}
-    		}).catch(function(err){
-    			log.error("Could not list unread messages: " + err.stack);
-    			setTimeout(scanSMS, config.sms_scan_frequency * 1000);
-    		});
-    	}).catch(function(err){
-    		//TODO: lookup error code in HuaweiModemErrorCodes
-    		log.error("Could not authenticate: Error code " + err);
-    		setTimeout(scanSMS, config.sms_scan_frequency * 1000);
-    	});
+			
+			scanCount++;
+			if (scanCount == config.reboot_scans_count) {
+				log.info("Device rebooted");
+				smsClient.control(1).then(function(response) {
+					scanCount = 0;
+					// Wait for 1 time for reboot process
+					setTimeout(scanSMS, 60000);
+				}).catch(function(err) {
+					log.error("Could not reboot device: Error code " + err);
+				});
+			}
+			else {
+				listUnreadMessages();
+			}
+    }).catch(function(err){
+    	//TODO: lookup error code in HuaweiModemErrorCodes
+    	log.error("Could not authenticate: Error code " + err);
+    	setTimeout(scanSMS, config.sms_scan_frequency * 1000);
+    });
   });
+}
+
+function listUnreadMessages() {
+	smsClient.listAllUnreadSMS().then(function(messages){				
+		if (messages.length > 0) {
+			this.forwardedCount = 0;
+			
+			var forwardMessages = function(i){
+			  if (i<messages.length) {
+			  		forwardMessage(messages[i], addressBookLookup).then(function(result) {
+			  			forwardMessages(i+1);
+			  		}).catch(function(err){
+			  			setTimeout(scanSMS, config.sms_scan_frequency * 1000);
+			  			log.error("Could not complete forwarding SMS - " + err);
+			  		});
+			  } else {
+			  		log.info("SMS scan complete: " + this.forwardedCount + " messages forwarded");
+			  		setTimeout(scanSMS, config.sms_scan_frequency * 1000);
+			  }
+			};
+			
+			forwardMessages(0);
+		} else {
+			log.debug("SMS scan complete - no message to forward");
+			setTimeout(scanSMS, config.sms_scan_frequency * 1000);
+		}
+	}).catch(function(err){
+		log.error("Could not list unread messages: " + err.stack);
+		setTimeout(scanSMS, config.sms_scan_frequency * 1000);
+	});
 }
 
 function forwardMessage(message, addressBookLookup) {
