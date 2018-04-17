@@ -4,7 +4,7 @@
 	"huawei_modem_ip": "192.168.1.1",
 	"huawei_modem_login": "admin",
 	"huawei_modem_password": "admin",
-	"reboot_scans_count": 2880,
+	"messages_retention_days" : 30,
 	"macos_address_book_db_path": "/Users/<MY_USER>/Library/Application Support/AddressBook//Sources/DE540B1E-A3CF-4655-B1F6-6DDC0B42CD5F/AddressBook-v22.abcddb",
 	"country": "FR"
 }

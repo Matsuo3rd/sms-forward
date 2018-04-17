@@ -47,7 +47,7 @@ config.json file shall contains the following keys/values:
 | `huawei_modem_ip` | N/A | The Huawei Modem's IP. e.g. "192.168.1.1"|
 | `huawei_modem_login` | N/A | Optional - The Huawei Modem's login. e.g. "admin". Some Huawei dongles require a login/password authentication (e.g. E355), others do not (e.g. E3372)|
 | `huawei_modem_password` | N/A | Optional - The Huawei Modem's login's password. e.g. "admin"|
-| `reboot_scans_count` | N/A | Optional - Periodical reboot of Huawei device after defined number of scans (e.g. 2880: a reboot will happen every 2880 scans). This mechanism is used to prevent ETIMEDOUT error by making sure we have a "fresh" connection with the device.|
+| `messages_retention_days` | N/A | Optional - Messages older than provided days will be deleted in order to free up messages space (which is limited on Huawei devices). e.g. "30" (days)|
 | `macos_address_book_db_path` | N/A | Optional - needed for message's originator's name resolution. Path of your MacOS AddressBook to resolve message's originator's name from phone number. You can find a list of databases by running the following command in a terminal: `find ~/Library/Application\ Support/AddressBook/ -name "AddressBook-v22.abcddb" -exec ls -rtlah {} +`, pick the last one in the list.|
 | `country` | N/A | Optional - needed for message's originator's name resolution. Your 2-letters [ISO 3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) code country. e.g. "FR" for France, "GB" for United Kingdom.
 
@@ -61,7 +61,7 @@ Configuration sample:
 	"huawei_modem_ip": "192.168.1.1",
 	"huawei_modem_login": "admin",
 	"huawei_modem_password": "admin",
-	"reboot_scans_count": 2880, 
+	"messages_retention_days" : 30,
 	"macos_address_book_db_path": "/Users/<MY_USER>/Library/Application Support/AddressBook//Sources/DE540B1E-A3CF-4655-B1F6-6DDC0B42CD5F/AddressBook-v22.abcddb",
 	"country": "FR"
 }
