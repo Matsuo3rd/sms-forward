@@ -1,6 +1,6 @@
 {
   "name": "sms-forward",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "Auto-forward incoming SMS from one mobile phone number to another phone number using a Huawei mobile broadband device (dongles, wingles)",
   "homepage": "https://github.com/matsuo3rd/sms-forward#readme",
   "main": "index.js",
@@ -29,7 +29,7 @@
     "chalk": "^2.3.0",
     "google-libphonenumber": "^3.0.9",
     "js-base64": "^2.4.0",
-    "sqlite3": "^4.0.8",
+    "sqlite3": "^4.2.0",
     "xml2js": "^0.4.19"
   }
 }
