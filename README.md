@@ -1,3 +1,5 @@
+**As I switched to iPhone supporting Dual SIM (eSIM), this repository won't be maintained anymore.**
+
 # sms-forward
 
 [![npm version](https://img.shields.io/npm/v/sms-forward.svg)](https://www.npmjs.com/package/sms-forward)
@@ -88,7 +90,7 @@ no matter if the phone is OFF or the SIM not connected to cellular network.
 SMS, however, is a different story. No telco operator (that I know of) offers a SMS Forwarding feature (the equivalent of Call Forwarding for SMS).
 
 There are some options out there but none of them completely meets my requirements:
-* Dual SIM would the job, but iPhones (which I happen to own) do not support such feature
+* Dual SIM can do the job, as iPhones (which I happen to own) feature eSIM support. However, you need a model starting from iPhone XS & XR.
 * A very limited set of telco operators, such as [Kyivstar](http://www.pay.kyivstar.ua/en/kr-620/mm/services/services_archive/sms-forward/) offers SMS Forward feature, however both phone numbers must be contracted with the same operator.
 * For iPhone, SMS and iMessages can be forwarded using Apple [Continuity](https://support.apple.com/en-us/HT204681) feature to other iDevices, provided they are connected with the same Apple ID and they are switched ON.
 That implies an always powered iPhone dedicated to the sole purpose of SMS forwarding, which is something I am not happy with.
