@@ -26,7 +26,7 @@ The detailed workflow is as follows:
 ## Prerequisites
 
 * Source phone number SIM dedicated for SMS forwarding
-* [Huawei Mobile Broadband device](http://consumer.huawei.com/en/?type=mobile-broadband). This has been tested with a (old) E355 model and a (new) E3372 model.
+* [Huawei Mobile Broadband device](http://consumer.huawei.com/en/?type=mobile-broadband). This has been tested with a (old) E355 model and a (new) E3372 model. E5331 was also reported to work successfully.
 If you are using another model, it would be great if you could report it
 * Always-on Linux/Mac computer/Raspberry Pi which executes this Node.js module
 * [Node.js](https://nodejs.org) installed on previously mentioned computer
